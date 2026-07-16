@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Affairs Dept. - Global Technology Initiatives</title>
+    <meta name="description"
+        content="Connecting Borders Through Technology. We design, build, and deploy scalable digital initiatives that drive cross-border impact and innovation.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&family=Caveat:wght@600;700&family=Nunito:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon"><i class="fa-solid fa-globe"></i></span>
+                <span class="logo-text">International Affairs Dept.</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#mission">Our Mission</a>
+                <a href="#projects">Projects</a>
+                <a href="#tech-stack">Tech Stack</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+            <button class="enroll-today-btn"
+                onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">Partner With
+                Us</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="bg-grid-lines">
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+            </div>
+
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Connecting Borders Through Technology.
+                </h1>
+
+                <p class="hero-subtitle">
+                    Welcome to the International Affairs Department. We design, build, and deploy scalable digital
+                    initiatives that drive cross-border impact and innovation.
+                </p>
+
+                <button class="enroll-cta-btn"
+                    onclick="document.querySelector('#projects').scrollIntoView({behavior: 'smooth'})">Explore Our
+                    Work</button>
+            </div>
+
+            <!-- Hero Images and Parallax Assets -->
+            <!-- <div class="hero-media-wrapper">
+                <div class="hero-card-container">
+                    <img src="assets/hero_woman.jpg" alt="Low Code Masterclass" class="hero-main-img">
+                    
+                    /* Floating Rating Badge (Glassmorphic) */
+                    <div class="floating-badge rating-badge" data-depth="0.15">
+                        <div class="avatar-group">
+                            <span class="avatar-circle"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&auto=format&fit=crop&q=80" alt="user"></span>
+                            <span class="avatar-circle"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&auto=format&fit=crop&q=80" alt="user"></span>
+                            <span class="avatar-circle"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&auto=format&fit=crop&q=80" alt="user"></span>
+                        </div>
+                        <div class="rating-details">
+                            <div class="rating-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span class="rating-val">4.9</span>
+                            </div>
+                            <div class="rating-desc">Trusted by international partners</div>
+                        </div>
+                    </div>
+                    
+                    /* Floating Lilac Speaker Keychain */
+                    <div class="floating-badge keychain-badge-lilac" data-depth="0.25">
+                        <img src="assets/hero_keychain.jpg" alt="SoundCloud Speaker Keychain" class="keychain-img">
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Globe Bottom Transition -->
+            <div class="globe-bottom-transition">
+                <img src="./assets/neon_globe.jpg" alt="Neon Globe Transition" class="globe-transition-img">
+            </div>
+        </section>
+
+        <!-- Featured Routes (Project Cards) -->
+        <!-- <section id="routes" class="problem-section">
+            <div class="problem-header">
+                <div class="handwritten-label-container">
+                    <span class="handwritten-text label-blue">Featured Routes</span>
+                    <svg viewBox="0 0 100 50" class="handwritten-arrow arrow-blue">
+                        <path d="M5,5 Q30,2 45,35" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" id="arrow-path-1" />
+                        <path d="M45,35 L38,30 M45,35 L40,24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </div>
+                <h2 class="section-heading text-center">Driving Global Innovation</h2>
+            </div>
+            
+            <div class="problem-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 1000px; margin: 0 auto; gap: 30px;">
+                
+                ## 
+                <div class="problem-card">
+                    <div class="card-tag">Mobile App • Digital Identity</div>
+                    <h3 class="card-title" style="margin-top: 0;">Kardo Platform</h3>
+                    <p class="card-desc">A seamless digital visiting card application designed to modernize professional networking and instant contact exchange.</p>
+                    <a href="#projects" class="card-link">View Route →</a>
+                </div>
+                
+                 Card 2: ESP32 Watering System 
+                <div class="problem-card">
+                    <div class="card-tag">IoT • Hardware Automation</div>
+                    <h3 class="card-title" style="margin-top: 0;">Smart ESP32 Irrigation</h3>
+                    <p class="card-desc">An automated, microcontroller-based watering system integrated with a custom companion application for real-time environmental monitoring.</p>
+                    <a href="#irrigation" class="card-link">View Route →</a>
+                </div>
+                
+            </div>
+        </section> -->
+        <!-- Logo Marquee Section -->
+        <!--         <section class="marquee-section">
+            <div class="marquee-container">
+                <div class="marquee-track">
+                    <div class="logo-item"><i class="fa-solid fa-circle-nodes"></i> Logoipsum</div>
+                    <div class="logo-item"><i class="fa-solid fa-cubes"></i> Logoipsum</div>
+                    <div class="logo-item"><i class="fa-solid fa-layer-group"></i> Logoipsum</div>
+                    <div class="logo-item"><i class="fa-solid fa-square-poll-vertical"></i> Logoipsum</div>
+                    <div class="logo-item"><i class="fa-solid fa-wind"></i> Logoipsum</div>
+                    <div class="logo-item"><i class="fa-solid fa-puzzle-piece"></i> Logoipsum</div>
+                    <div class="logo-item"><i class="fa-solid fa-circle-nodes"></i> Logoipsum</div>
+                    <div class="logo-item"><i class="fa-solid fa-cubes"></i> Logoipsum</div>
+                    <div class="logo-item"><i class="fa-solid fa-layer-group"></i> Logoipsum</div>
+                    <div class="logo-item"><i class="fa-solid fa-square-poll-vertical"></i> Logoipsum</div>
+                    <div class="logo-item"><i class="fa-solid fa-wind"></i> Logoipsum</div>
+                    <div class="logo-item"><i class="fa-solid fa-puzzle-piece"></i> Logoipsum</div>
+                </div>
+            </div>
+        </section>  -->
+
+        <!-- Curriculum Section (Repurposed to Project 1 Deep Dive) -->
+
+
+
+
+        <!-- For vs Not For You Section (Kept for layout flow) -->
+
+
+        <!-- Scroll Mask Section -->
+        <section class="reveal-scroll-section">
+            <div class="reveal-scroll-container">
+                <!-- Fixed title behind the image -->
+                <div class="reveal-background-text">
+                    Get solid direction
+                </div>
+                <!-- Shrinking image container -->
+                <div class="reveal-image-wrapper">
+                    <img src="assets/reveal_woman.jpg" alt="Solid Direction Course" class="reveal-main-img">
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Tech Stack Section (Repurposed from Reviews) -->
+        <section id="tech-stack" class="reviews-section">
+            <div class="reviews-bg-text">Stack</div>
+
+            <div class="reviews-container">
+                <h2 class="reviews-heading">Powered by Modern Frameworks</h2>
+
+                <div class="reviews-grid">
+                    <!-- Tech Card 1 -->
+                    <div class="review-card">
+                        <div class="review-stars"
+                            style="color: var(--color-primary-blue); font-size: 2.2rem; margin-bottom: 25px;">
+                            <i class="fa-brands fa-react"></i>
+                        </div>
+                        <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 15px;">Next.js & React</h3>
+                        <p class="review-text" style="min-height: 100px;">
+                            "Utilized for building high-performance, server-rendered web applications."
+                        </p>
+                        <div class="reviewer-info">
+                            <div class="reviewer-meta">
+                                <h4 class="reviewer-name">Web Platform</h4>
+                                <span class="reviewer-role">Server & Client Rendering</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tech Card 2 -->
+                    <div class="review-card">
+                        <div class="review-stars" style="color: #02569B; font-size: 2.2rem; margin-bottom: 25px;">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 15px;">Flutter</h3>
+                        <p class="review-text" style="min-height: 100px;">
+                            "Our framework of choice for seamless, cross-platform mobile deployments."
+                        </p>
+                        <div class="reviewer-info">
+                            <div class="reviewer-meta">
+                                <h4 class="reviewer-name">Mobile Framework</h4>
+                                <span class="reviewer-role">iOS, Android, & Web Desktop</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tech Card 3 -->
+                    <div class="review-card">
+                        <div class="review-stars" style="color: #8b5cf6; font-size: 2.2rem; margin-bottom: 25px;">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 15px;">AI & Machine Learning</h3>
+                        <p class="review-text" style="min-height: 100px;">
+                            "Integrating predictive modeling and feature selection for intelligent systems."
+                        </p>
+                        <div class="reviewer-info">
+                            <div class="reviewer-meta">
+                                <h4 class="reviewer-name">Intelligence Layer</h4>
+                                <span class="reviewer-role">Predictive Classification & Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Development Phases Section (Repurposed from Pricing Tiers) -->
+
+
+        <!-- Hardware Integration: Smart Irrigation (Replacing Video Grid) -->
+        <!--         <section id="irrigation" class="videos-carousel-section">
+            <div class="carousel-intro-header text-center" style="margin-bottom: 50px;">
+                <h2 class="section-heading" style="color: var(--color-text-dark); margin-bottom: 10px;">Hardware Integration: Smart Irrigation</h2>
+                <p class="carousel-subtext" style="color: var(--color-text-light); font-size: 1.15rem; font-weight: 500; max-width: 650px; margin: 0 auto;">Bridging physical hardware with digital tracking utilizing ESP32 microcontrollers and custom software.</p>
+            </div>
+            <div class="videos-track">
+               
+                <div class="video-card">
+                    <img src="assets/esp32_board.jpg" alt="ESP32 Microcontroller Board">
+                    <div class="video-overlay"><i class="fa-solid fa-microchip"></i></div>
+                </div>
+               <div class="video-card">
+                    <img src="assets/esp32_wiring.jpg" alt="Sensor Wiring and Breadboard">
+                    <div class="video-overlay"><i class="fa-solid fa-gears"></i></div>
+                </div>
+               
+                <div class="video-card">
+                    <img src="assets/smart_plants.jpg" alt="Irrigation Tubing and Plants">
+                    <div class="video-overlay"><i class="fa-solid fa-seedling"></i></div>
+                </div>
+               
+                <div class="video-card">
+                    <img src="assets/irrigation_app.jpg" alt="Irrigation Companion Mobile App">
+                    <div class="video-overlay"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- FAQ Section -->
+        <!--  <section id="faq" class="faq-section">
+            <div class="faq-container">
+                <div class="faq-header">
+                    <div class="handwritten-label-container">
+                        <span class="handwritten-text label-green">Any question left?</span>
+                        <svg viewBox="0 0 100 50" class="handwritten-arrow arrow-green">
+                            <path d="M50,5 Q90,15 80,40" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" />
+                            <path d="M80,40 L73,34 M80,40 L85,32" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h2 class="section-heading">Frequently Asked Questions</h2>
+                </div>
+                
+                <div class="faq-accordion">
+                    <div class="faq-item active">
+                        <button class="faq-question">
+                            <span>What types of projects does the department handle?</span>
+                            <span class="faq-toggle-icon"><i class="fa-solid fa-minus"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We focus on building high-performance web systems, responsive mobile applications, and secure transaction architectures featuring predictive classification models.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How do you ensure project security?</span>
+                            <span class="faq-toggle-icon"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We prioritize local cryptography, secure device-level storage vaults, and decentralized logging configurations to mitigate threat exposure.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Are these projects open for collaboration?</span>
+                            <span class="faq-toggle-icon"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes. Many of our core architectural repositories are open-source. Stakeholders and engineers can collaborate by contacting the lead developer or visiting our GitHub repositories.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What methodologies do you use for deployment?</span>
+                            <span class="faq-toggle-icon"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We deploy using continuous integration (CI/CD) pipelines, automated security testing, and containerized Docker images to guarantee cross-environment stability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Call to Action Section / Footer -->
+        <section id="contact" class="cta-section">
+            <div class="bg-grid-lines">
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+            </div>
+
+            <div class="cta-container">
+                <!-- Mentor Avatar with Handwritten badge -->
+                <!-- <div class="mentor-avatar-wrapper">
+                    <div class="handwritten-label-container">
+                        <span class="handwritten-text label-white">Lead Dev</span>
+                        <svg viewBox="0 0 100 50" class="handwritten-arrow arrow-white">
+                            <path d="M10,5 Q40,10 65,30" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+                            <path d="M65,30 L57,28 M65,30 L62,20" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    
+                    <div class="mentor-avatar-card">
+                        <img src="assets/lead_dev.jpg" alt="Sai Shankar D" class="mentor-img">
+                        <div class="mentor-social-icons">
+                            <a href="mailto:sai.shankar@courso.com" class="social-btn btn-mail"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="https://linkedin.com" target="_blank" class="social-btn btn-linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="mentor-badge-name">Sai Shankar D</div>
+                </div> -->
+
+                <h2 class="cta-heading">Meet the Architecture Team</h2>
+                <p class="cta-description"
+                    style="font-size: 1.25rem; font-weight: 500; opacity: 0.9; max-width: 600px; margin: -20px auto 40px auto; line-height: 1.6;">
+                    Based in Bengaluru, specializing in scalable web frameworks, mobile development, and machine
+                    learning architectures for global applications.
+                </p>
+                <form class="subscribe-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                    <input type="email" placeholder="Subscribe for updates..." required class="subscribe-input">
+                    <button type="submit" class="subscribe-submit-btn">Subscribe</button>
+                </form>
+
+                <!-- Floating 3D keychain Phone/Stay Connected -->
+                <!-- <div class="floating-badge cta-keychain-badge" data-depth="0.3">
+                    <img src="assets/footer_keychain.jpg" alt="Stay Connected Phone Keychain" class="keychain-img-cta">
+                </div> -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Copyright -->
+    <footer class="bottom-footer">
+        <p>&copy; 2026 International Affairs Department. All rights reserved. Made as a pixel-perfect replicated
+            portfolio.</p>
+    </footer>
+
+    <!-- GSAP for Smooth Scroll-Driven Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="index.js"></script>
+</body>
+
+</html>

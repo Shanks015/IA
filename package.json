@@ -1,0 +1,13 @@
+{
+  "name": "courso-replication",
+  "version": "1.0.0",
+  "description": "Courso Web Replication",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
