@@ -499,6 +499,7 @@ section {
     padding-top: 190px;
     padding-bottom: 240px; /* Space for the overlay and cards */
     overflow: hidden;
+    position: relative;
 }
 
 /* Globe Bottom Transition (Size of the clouds before) */
@@ -519,6 +520,7 @@ section {
     object-fit: cover;
     object-position: center 40%;
     opacity: 0.85;
+    mix-blend-mode: screen;
     mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 100%);
     -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 100%);
 }
