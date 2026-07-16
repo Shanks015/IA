@@ -115,24 +115,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // SCROLL REVEAL TEXT MASK ANIMATION (GSAP PIN)
+    // HORIZONTAL PARALLAX TIMELINE GALLERY (GSAP PIN)
     // ==========================================
     if (typeof gsap !== 'undefined') {
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: ".reveal-scroll-section",
-                start: "top top",
-                end: "+=1200", // Duration of scrolling/pinning
-                pin: true,
-                scrub: true,
-                anticipatePin: 1
-            }
-        })
-        .to(".reveal-image-wrapper", {
-            width: "0px",
-            borderRadius: "0px",
-            ease: "none"
-        });
+        const track = document.querySelector('.horizontal-scroll-track');
+        if (track) {
+            const getScrollAmount = () => {
+                return -(track.scrollWidth - window.innerWidth);
+            };
+            
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".reveal-scroll-section",
+                    start: "top top",
+                    end: () => `+=${track.scrollWidth - window.innerWidth}`,
+                    pin: true,
+                    scrub: 1,
+                    invalidateOnRefresh: true,
+                    anticipatePin: 1
+                }
+            });
+            
+            tl.to(track, {
+                x: getScrollAmount,
+                ease: "none"
+            });
+            
+            // Staggered vertical parallax translations
+            document.querySelectorAll('.img-wrapper.slower').forEach(el => {
+                tl.to(el, { y: -60, ease: "none" }, 0);
+            });
+            document.querySelectorAll('.img-wrapper.slower2').forEach(el => {
+                tl.to(el, { y: -80, ease: "none" }, 0);
+            });
+            document.querySelectorAll('.img-wrapper.slower-down').forEach(el => {
+                tl.to(el, { y: 60, ease: "none" }, 0);
+            });
+            document.querySelectorAll('.img-wrapper.faster').forEach(el => {
+                tl.to(el, { y: 80, ease: "none" }, 0);
+            });
+            document.querySelectorAll('.img-wrapper.faster1').forEach(el => {
+                tl.to(el, { y: 40, ease: "none" }, 0);
+            });
+        }
     }
 
     // ==========================================
