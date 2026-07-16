@@ -118,44 +118,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // HORIZONTAL PARALLAX TIMELINE GALLERY (GSAP PIN)
     // ==========================================
     if (typeof gsap !== 'undefined') {
-        const track = document.querySelector('.horizontal-scroll-track');
-        if (track) {
+        const scrollWrapper = document.querySelector('.horizontal-scroll-wrapper');
+        if (scrollWrapper) {
             const getScrollAmount = () => {
-                return -(track.scrollWidth - window.innerWidth);
+                return scrollWrapper.scrollHeight - scrollWrapper.clientHeight;
             };
-            
-            const tl = gsap.timeline({
+
+            const obj = { scrollTop: 0 };
+            gsap.to(obj, {
+                scrollTop: getScrollAmount,
+                ease: "none",
                 scrollTrigger: {
                     trigger: ".reveal-scroll-section",
                     start: "top top",
-                    end: () => `+=${track.scrollWidth - window.innerWidth}`,
+                    end: () => `+=${scrollWrapper.scrollHeight - scrollWrapper.clientHeight}`,
                     pin: true,
-                    scrub: 1,
+                    scrub: 0.5,
+                    anticipatePin: 1,
                     invalidateOnRefresh: true,
-                    anticipatePin: 1
+                },
+                onUpdate: () => {
+                    scrollWrapper.scrollTop = obj.scrollTop;
                 }
-            });
-            
-            tl.to(track, {
-                x: getScrollAmount,
-                ease: "none"
-            });
-            
-            // Staggered vertical parallax translations
-            document.querySelectorAll('.img-wrapper.slower').forEach(el => {
-                tl.to(el, { y: -60, ease: "none" }, 0);
-            });
-            document.querySelectorAll('.img-wrapper.slower2').forEach(el => {
-                tl.to(el, { y: -80, ease: "none" }, 0);
-            });
-            document.querySelectorAll('.img-wrapper.slower-down').forEach(el => {
-                tl.to(el, { y: 60, ease: "none" }, 0);
-            });
-            document.querySelectorAll('.img-wrapper.faster').forEach(el => {
-                tl.to(el, { y: 80, ease: "none" }, 0);
-            });
-            document.querySelectorAll('.img-wrapper.faster1').forEach(el => {
-                tl.to(el, { y: 40, ease: "none" }, 0);
             });
         }
     }
