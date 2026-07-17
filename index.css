@@ -1449,7 +1449,7 @@ section {
     border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-img {
+.img-wrapper img {
     max-width: 45vh;
     max-height: 50vh;
     transition: filter .5s ease, transform 0.5s ease;
@@ -1458,7 +1458,7 @@ img {
     filter: saturate(40%) sepia(30%) hue-rotate(5deg);
 }
 
-a:hover img {
+.img-wrapper a:hover img {
     filter: saturate(100%) sepia(0%) hue-rotate(0deg);
 }
 
