@@ -46,54 +46,90 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="hero-section">
-
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    Connecting Borders Through Technology.
-                </h1>
-
-                <p class="hero-subtitle">
-                    Welcome to the -- We design, build, and deploy scalable digital
-                    initiatives that drive cross-border impact and innovation.
-                </p>
-
-                <button class="enroll-cta-btn"
-                    onclick="document.querySelector('#projects').scrollIntoView({behavior: 'smooth'})">Explore Our
-                    Work</button>
+        <section id="home" class="hero-section hero-style-blobs">
+            <!-- Background Canvas for Node Network (Style C) -->
+            <canvas id="hero-network-canvas" class="hero-bg-element"></canvas>
+            
+            <!-- Background Blobs (Style A) -->
+            <div class="hero-bg-blobs hero-bg-element">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+                <div class="blob blob-3"></div>
             </div>
 
-            <!-- Hero Images and Parallax Assets -->
-            <!-- <div class="hero-media-wrapper">
-                <div class="hero-card-container">
-                    <img src="assets/hero_woman.jpg" alt="Low Code Masterclass" class="hero-main-img">
-                    
-                    /* Floating Rating Badge (Glassmorphic) */
-                    <div class="floating-badge rating-badge" data-depth="0.15">
-                        <div class="avatar-group">
-                            <span class="avatar-circle"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&auto=format&fit=crop&q=80" alt="user"></span>
-                            <span class="avatar-circle"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&auto=format&fit=crop&q=80" alt="user"></span>
-                            <span class="avatar-circle"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&auto=format&fit=crop&q=80" alt="user"></span>
-                        </div>
-                        <div class="rating-details">
-                            <div class="rating-stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <span class="rating-val">4.9</span>
-                            </div>
-                            <div class="rating-desc">Trusted by international partners</div>
-                        </div>
-                    </div>
-                    
-                    /* Floating Lilac Speaker Keychain */
-                    <div class="floating-badge keychain-badge-lilac" data-depth="0.25">
-                        <img src="assets/hero_keychain.jpg" alt="SoundCloud Speaker Keychain" class="keychain-img">
+            <div class="hero-container">
+                <div class="hero-content-left">
+                    <h1 class="hero-title">
+                        Connecting Borders Through Technology.
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Welcome to the department. We design, build, and deploy scalable digital
+                        initiatives that drive cross-border impact and innovation.
+                    </p>
+
+                    <div class="hero-actions">
+                        <button class="enroll-cta-btn"
+                            onclick="document.querySelector('#projects').scrollIntoView({behavior: 'smooth'})">Explore Our
+                            Work</button>
                     </div>
                 </div>
-            </div> -->
+
+                <div class="hero-visuals-right">
+                    <!-- Glass Badges (Style A) -->
+                    <div class="visual-set visual-set-glass">
+                        <div class="floating-badge-glass glass-card-1" data-depth="0.1">
+                            <div class="badge-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                            <div class="badge-text">
+                                <strong>10+ Nodes</strong>
+                                <span>Global Operations</span>
+                            </div>
+                        </div>
+                        <div class="floating-badge-glass glass-card-2" data-depth="0.2">
+                            <div class="badge-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--color-success-green);"><i class="fa-solid fa-circle-check"></i></div>
+                            <div class="badge-text">
+                                <strong>99% Success</strong>
+                                <span>Deployment rate</span>
+                            </div>
+                        </div>
+                        <div class="floating-badge-glass glass-card-3" data-depth="0.15">
+                            <div class="badge-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;"><i class="fa-solid fa-bolt"></i></div>
+                            <div class="badge-text">
+                                <strong>Next-Gen</strong>
+                                <span>Edge Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collage (Style B) -->
+                    <div class="visual-set visual-set-collage">
+                        <div class="collage-container">
+                            <div class="collage-img img-large" data-depth="0.08">
+                                <img src="assets/hero_woman.jpg" alt="Collaborative Innovation">
+                            </div>
+                            <div class="collage-img img-small" data-depth="0.18">
+                                <img src="assets/mentor_woman.jpg" alt="Technical Leadership">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Style Switcher Panel -->
+            <div class="hero-style-switcher">
+                <span class="switcher-title">Hero Design:</span>
+                <div class="switcher-buttons">
+                    <button class="style-switch-btn active" data-style="blobs">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Glass & Blobs
+                    </button>
+                    <button class="style-switch-btn" data-style="collage">
+                        <i class="fa-solid fa-images"></i> Asset Collage
+                    </button>
+                    <button class="style-switch-btn" data-style="network">
+                        <i class="fa-solid fa-circle-nodes"></i> Node Network
+                    </button>
+                </div>
+            </div>
         </section>
 
         <!-- Featured Routes (Project Cards) -->
@@ -155,8 +191,24 @@
 
         <!-- Parallax Gallery Section: Innovation Timeline -->
         <section class="reveal-scroll-section" id="timeline">
-            
-            
+            <!-- Top-Left Minimalist Badge & Title -->
+            <div class="timeline-header-clean">
+                <span class="img-tag">Global Timeline</span>
+                <h2 class="timeline-title-clean">Eras of Innovation</h2>
+            </div>
+
+            <!-- Sidebar Progress Indicator -->
+            <div class="timeline-sidebar-indicator">
+                <div class="indicator-track">
+                    <div class="indicator-progress"></div>
+                </div>
+                <div class="indicator-steps">
+                    <div class="indicator-step active" data-step="0"><span>1980s</span></div>
+                    <div class="indicator-step" data-step="1"><span>2000s</span></div>
+                    <div class="indicator-step" data-step="2"><span>2020s</span></div>
+                    <div class="indicator-step" data-step="3"><span>Present</span></div>
+                </div>
+            </div>
             
             <div class="tunnel-track">
                 <div class="tunnel-card">

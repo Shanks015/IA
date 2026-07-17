@@ -3,7 +3,214 @@ if (typeof gsap !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
 }
 
+// ==========================================
+// INTERACTIVE CONNECTED NODE NETWORK CANVAS
+// ==========================================
+function initHeroNetwork() {
+    const canvas = document.getElementById('hero-network-canvas');
+    if (!canvas) return null;
+    const ctx = canvas.getContext('2d');
+    
+    let particles = [];
+    let width = canvas.width = canvas.offsetWidth;
+    let height = canvas.height = canvas.offsetHeight;
+    
+    const mouse = { x: null, y: null, radius: 150 };
+    
+    function resize() {
+        if (!canvas.offsetParent) return;
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+        init();
+    }
+    window.addEventListener('resize', resize);
+    
+    const section = canvas.closest('section');
+    section.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+    });
+    
+    section.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+    
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.6;
+            this.vy = (Math.random() - 0.5) * 0.6;
+            this.radius = Math.random() * 2.5 + 1.5;
+        }
+        
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            
+            if (this.x < 0 || this.x > width) this.vx *= -1;
+            if (this.y < 0 || this.y > height) this.vy *= -1;
+            
+            if (mouse.x !== null && mouse.y !== null) {
+                let dx = this.x - mouse.x;
+                let dy = this.y - mouse.y;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < mouse.radius) {
+                    let force = (mouse.radius - dist) / mouse.radius;
+                    this.x += (dx / dist) * force * 1.5;
+                    this.y += (dy / dist) * force * 1.5;
+                }
+            }
+        }
+        
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(67, 133, 224, 0.4)';
+            ctx.fill();
+        }
+    }
+    
+    function init() {
+        particles = [];
+        const count = Math.min(60, Math.floor((width * height) / 12000));
+        for (let i = 0; i < count; i++) {
+            particles.push(new Particle());
+        }
+    }
+    
+    let animId;
+    function animate() {
+        animId = requestAnimationFrame(animate);
+        ctx.clearRect(0, 0, width, height);
+        
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                let dx = particles[i].x - particles[j].x;
+                let dy = particles[i].y - particles[j].y;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+                
+                if (dist < 120) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(67, 133, 224, ${0.18 * (1 - dist / 120)})`;
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+    
+    init();
+    animate();
+    
+    return {
+        destroy: () => {
+            window.removeEventListener('resize', resize);
+            cancelAnimationFrame(animId);
+        }
+    };
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    // ==========================================
+    // HERO DESIGN SHOWCASE SWITCHER
+    // ==========================================
+    const heroSection = document.getElementById('home');
+    const switchBtns = document.querySelectorAll('.style-switch-btn');
+    let networkAnim = null;
+    
+    function setHeroStyle(style) {
+        if (!heroSection) return;
+        
+        // Remove style classes
+        heroSection.classList.remove('hero-style-blobs', 'hero-style-collage', 'hero-style-network');
+        heroSection.classList.add(`hero-style-${style}`);
+        
+        // Update switcher buttons
+        switchBtns.forEach(btn => {
+            if (btn.getAttribute('data-style') === style) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        
+        // Clean up previous animations
+        if (networkAnim) {
+            networkAnim.destroy();
+            networkAnim = null;
+        }
+        
+        // Load network canvas animation
+        if (style === 'network') {
+            networkAnim = initHeroNetwork();
+        }
+    }
+    
+    switchBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const style = btn.getAttribute('data-style');
+            setHeroStyle(style);
+        });
+    });
+    
+    // Set default style to blobs
+    setHeroStyle('blobs');
+
+    // ==========================================
+    // MOUSE PARALLAX EFFECT FOR HERO ELEMENTS
+    // ==========================================
+    const heroVisuals = document.querySelector('.hero-visuals-right');
+    if (heroVisuals) {
+        heroVisuals.addEventListener('mousemove', (e) => {
+            const rect = heroVisuals.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            const items = heroVisuals.querySelectorAll('[data-depth]');
+            items.forEach(item => {
+                const depth = parseFloat(item.getAttribute('data-depth')) || 0.1;
+                const moveX = x * depth;
+                const moveY = y * depth;
+                
+                if (item.classList.contains('img-large')) {
+                    item.style.transform = `translate(${-30 + moveX}px, ${-20 + moveY}px) rotate(-3deg)`;
+                } else if (item.classList.contains('img-small')) {
+                    item.style.transform = `translate(${110 + moveX}px, ${70 + moveY}px) rotate(4deg)`;
+                } else {
+                    item.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                }
+            });
+        });
+        
+        heroVisuals.addEventListener('mouseleave', () => {
+            const items = heroVisuals.querySelectorAll('[data-depth]');
+            items.forEach(item => {
+                item.style.transition = 'transform 0.5s ease-out';
+                if (item.classList.contains('img-large')) {
+                    item.style.transform = `translate(-30px, -20px) rotate(-3deg)`;
+                } else if (item.classList.contains('img-small')) {
+                    item.style.transform = `translate(110px, 70px) rotate(4deg)`;
+                } else {
+                    item.style.transform = `translate(0px, 0px)`;
+                }
+                
+                setTimeout(() => {
+                    item.style.transition = '';
+                }, 500);
+            });
+        });
+    }
 
     // ==========================================
     // INITIALIZE LENIS SMOOTH SCROLL (SLOW & SMOOTH)
@@ -130,7 +337,28 @@ document.addEventListener('DOMContentLoaded', () => {
                     end: "+=2200",
                     pin: true,
                     scrub: 1,
-                    invalidateOnRefresh: true
+                    invalidateOnRefresh: true,
+                    onUpdate: (self) => {
+                        const progressIndicator = document.querySelector('.indicator-progress');
+                        if (progressIndicator) {
+                            progressIndicator.style.height = `${self.progress * 100}%`;
+                        }
+                        
+                        const steps = document.querySelectorAll('.indicator-step');
+                        if (steps.length > 0) {
+                            const stepIndex = Math.min(
+                                steps.length - 1,
+                                Math.floor(self.progress * steps.length * 1.1)
+                            );
+                            steps.forEach((step, idx) => {
+                                if (idx === stepIndex) {
+                                    step.classList.add('active');
+                                } else {
+                                    step.classList.remove('active');
+                                }
+                            });
+                        }
+                    }
                 }
             });
             
