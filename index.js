@@ -168,36 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // --- Style 2: Scattered Grid Parallax Zoom ---
-        const zoomTrack = document.querySelector('#gallery-style-2 .zoom-track');
-        const zoomCards = document.querySelectorAll('#gallery-style-2 .zoom-card');
-        
-        if (zoomTrack && zoomCards.length > 0) {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#gallery-style-2",
-                    start: "top top",
-                    end: "+=1500",
-                    pin: true,
-                    scrub: 0.5,
-                    invalidateOnRefresh: true
-                }
-            });
-            
-            tl.fromTo(zoomTrack, { scale: 0.6 }, { scale: 2.2, ease: "none" }, 0);
-            
-            zoomCards.forEach((card, index) => {
-                const angle = (index / zoomCards.length) * Math.PI * 2;
-                const scatterX = Math.cos(angle) * 350;
-                const scatterY = Math.sin(angle) * 350;
-                
-                tl.fromTo(card, 
-                    { x: 0, y: 0, opacity: 0.8 },
-                    { x: scatterX, y: scatterY, opacity: 1, ease: "none" }, 
-                    0
-                );
-            });
-        }
 
         // --- Style 3: Inertial Tilting Horizontal Strip ---
         const tiltTrack = document.querySelector('#gallery-style-3 .tilt-track');

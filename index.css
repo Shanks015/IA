@@ -1453,60 +1453,6 @@ section {
     max-width: 600px;
 }
 
-/* ==========================================
-   STYLE 2: SCATTERED GRID PARALLAX ZOOM
-   ========================================== */
-#gallery-style-2 {
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.zoom-track {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    will-change: transform;
-}
-.zoom-card {
-    position: absolute;
-    width: 280px;
-    padding: 10px;
-    background: #ffffff;
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-}
-.zoom-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: calc(var(--border-radius-md) - 4px);
-    transition: filter 0.5s ease;
-    filter: saturate(50%);
-}
-.zoom-card:hover img {
-    filter: saturate(100%);
-}
-.zoom-card-content {
-    margin-top: 10px;
-}
-.zoom-card-content h4 {
-    font-size: 1.1rem;
-    font-weight: 800;
-    font-family: var(--font-display);
-    color: var(--color-text-dark);
-    margin-bottom: 5px;
-}
-.zoom-card-content p {
-    font-size: 0.78rem;
-    color: var(--color-text-muted);
-    line-height: 1.4;
-    margin: 0;
-}
 
 /* ==========================================
    STYLE 3: INERTIAL TILTING HORIZONTAL STRIP
