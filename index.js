@@ -115,31 +115,165 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // HORIZONTAL PARALLAX TIMELINE GALLERY (GSAP PIN)
+    // MULTIPLE GALLERY EXPERIMENTAL ANIMATION STYLES (GSAP PIN)
     // ==========================================
     if (typeof gsap !== 'undefined') {
-        const scrollWrapper = document.querySelector('.horizontal-scroll-wrapper');
-        if (scrollWrapper) {
-            const getScrollAmount = () => {
-                return scrollWrapper.scrollHeight - scrollWrapper.clientHeight;
-            };
-
-            const obj = { scrollTop: 0 };
-            gsap.to(obj, {
-                scrollTop: getScrollAmount,
-                ease: "none",
+        
+        // --- Style 1: 3D Depth Tunnel ---
+        const tunnelTrack = document.querySelector('#gallery-style-1 .tunnel-track');
+        const tunnelCards = document.querySelectorAll('#gallery-style-1 .tunnel-card');
+        const tunnelIntro = document.querySelector('#gallery-style-1 .tunnel-intro');
+        
+        if (tunnelTrack && tunnelCards.length > 0) {
+            const tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: ".reveal-scroll-section",
+                    trigger: "#gallery-style-1",
                     start: "top top",
-                    end: () => `+=${scrollWrapper.scrollHeight - scrollWrapper.clientHeight}`,
+                    end: "+=2000",
+                    pin: true,
+                    scrub: 1,
+                    invalidateOnRefresh: true
+                }
+            });
+            
+            tl.to(tunnelIntro, { opacity: 0, y: -50, duration: 0.5 }, 0);
+            
+            tunnelCards.forEach((card, index) => {
+                const initialZ = -1200 + (index * 300);
+                const initialX = index % 2 === 0 ? -20 : 18;
+                const initialY = index % 2 === 0 ? -15 : 12;
+                
+                gsap.set(card, {
+                    xPercent: -50,
+                    yPercent: -50,
+                    z: initialZ,
+                    x: `${initialX}vw`,
+                    y: `${initialY}vh`,
+                    opacity: 0
+                });
+                
+                tl.to(card, {
+                    z: 500,
+                    opacity: 1,
+                    ease: "power1.inOut",
+                    onUpdate: function() {
+                        const progress = this.progress();
+                        if (progress > 0.8) {
+                            card.style.opacity = (1 - (progress - 0.8) * 5);
+                        } else {
+                            card.style.opacity = Math.min(1, progress * 4);
+                        }
+                    }
+                }, index * 0.3);
+            });
+        }
+
+        // --- Style 2: Scattered Grid Parallax Zoom ---
+        const zoomTrack = document.querySelector('#gallery-style-2 .zoom-track');
+        const zoomCards = document.querySelectorAll('#gallery-style-2 .zoom-card');
+        
+        if (zoomTrack && zoomCards.length > 0) {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "#gallery-style-2",
+                    start: "top top",
+                    end: "+=1500",
                     pin: true,
                     scrub: 0.5,
-                    anticipatePin: 1,
-                    invalidateOnRefresh: true,
-                },
-                onUpdate: () => {
-                    scrollWrapper.scrollTop = obj.scrollTop;
+                    invalidateOnRefresh: true
                 }
+            });
+            
+            tl.fromTo(zoomTrack, { scale: 0.6 }, { scale: 2.2, ease: "none" }, 0);
+            
+            zoomCards.forEach((card, index) => {
+                const angle = (index / zoomCards.length) * Math.PI * 2;
+                const scatterX = Math.cos(angle) * 350;
+                const scatterY = Math.sin(angle) * 350;
+                
+                tl.fromTo(card, 
+                    { x: 0, y: 0, opacity: 0.8 },
+                    { x: scatterX, y: scatterY, opacity: 1, ease: "none" }, 
+                    0
+                );
+            });
+        }
+
+        // --- Style 3: Inertial Tilting Horizontal Strip ---
+        const tiltTrack = document.querySelector('#gallery-style-3 .tilt-track');
+        const tiltCards = document.querySelectorAll('#gallery-style-3 .tilt-card');
+        
+        if (tiltTrack) {
+            const getScrollAmount = () => -(tiltTrack.scrollWidth - window.innerWidth);
+            
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "#gallery-style-3",
+                    start: "top top",
+                    end: () => `+=${tiltTrack.scrollWidth - window.innerWidth}`,
+                    pin: true,
+                    scrub: 0.8,
+                    invalidateOnRefresh: true,
+                    onUpdate: (self) => {
+                        const velocity = self.getVelocity();
+                        const skew = velocity / 180;
+                        
+                        tiltCards.forEach(card => {
+                            gsap.to(card, {
+                                skewX: skew,
+                                rotation: skew * 0.4,
+                                overwrite: "auto",
+                                duration: 0.4,
+                                ease: "power1.out"
+                            });
+                        });
+                    },
+                    onToggle: (self) => {
+                        if (!self.isActive) {
+                            tiltCards.forEach(card => {
+                                gsap.to(card, { skewX: 0, rotation: 0, duration: 0.5 });
+                            });
+                        }
+                    }
+                }
+            });
+            
+            tl.to(tiltTrack, {
+                x: getScrollAmount,
+                ease: "none"
+            });
+        }
+
+        // --- Style 4: Floating Multi-directional Collage ---
+        const collageTrack = document.querySelector('#gallery-style-4 .collage-track');
+        const collageCards = document.querySelectorAll('#gallery-style-4 .collage-card');
+        
+        if (collageTrack && collageCards.length > 0) {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "#gallery-style-4",
+                    start: "top top",
+                    end: "+=1500",
+                    pin: true,
+                    scrub: 1,
+                    invalidateOnRefresh: true
+                }
+            });
+            
+            collageCards.forEach(card => {
+                const speedX = parseFloat(card.getAttribute('data-speed-x')) || 0;
+                const speedY = parseFloat(card.getAttribute('data-speed-y')) || 0;
+                
+                tl.fromTo(card,
+                    { x: 0, y: 0 },
+                    { 
+                        x: speedX, 
+                        y: speedY, 
+                        rotation: speedX * 0.05,
+                        ease: "none" 
+                    },
+                    0
+                );
             });
         }
     }
