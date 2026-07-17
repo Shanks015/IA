@@ -115,21 +115,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // MULTIPLE GALLERY EXPERIMENTAL ANIMATION STYLES (GSAP PIN)
+    // 3D DEPTH TUNNEL TIMELINE GALLERY (GSAP PIN)
     // ==========================================
     if (typeof gsap !== 'undefined') {
-        
-        // --- Style 1: 3D Depth Tunnel ---
-        const tunnelTrack = document.querySelector('#gallery-style-1 .tunnel-track');
-        const tunnelCards = document.querySelectorAll('#gallery-style-1 .tunnel-card');
-        const tunnelIntro = document.querySelector('#gallery-style-1 .tunnel-intro');
+        const tunnelTrack = document.querySelector('#timeline .tunnel-track');
+        const tunnelCards = document.querySelectorAll('#timeline .tunnel-card');
+        const tunnelIntro = document.querySelector('#timeline .tunnel-intro');
         
         if (tunnelTrack && tunnelCards.length > 0) {
             const tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: "#gallery-style-1",
+                    trigger: "#timeline",
                     start: "top top",
-                    end: "+=2000",
+                    end: "+=2200",
                     pin: true,
                     scrub: 1,
                     invalidateOnRefresh: true
@@ -165,85 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     }
                 }, index * 0.3);
-            });
-        }
-
-
-        // --- Style 3: Inertial Tilting Horizontal Strip ---
-        const tiltTrack = document.querySelector('#gallery-style-3 .tilt-track');
-        const tiltCards = document.querySelectorAll('#gallery-style-3 .tilt-card');
-        
-        if (tiltTrack) {
-            const getScrollAmount = () => -(tiltTrack.scrollWidth - window.innerWidth);
-            
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#gallery-style-3",
-                    start: "top top",
-                    end: () => `+=${tiltTrack.scrollWidth - window.innerWidth}`,
-                    pin: true,
-                    scrub: 0.8,
-                    invalidateOnRefresh: true,
-                    onUpdate: (self) => {
-                        const velocity = self.getVelocity();
-                        const skew = velocity / 180;
-                        
-                        tiltCards.forEach(card => {
-                            gsap.to(card, {
-                                skewX: skew,
-                                rotation: skew * 0.4,
-                                overwrite: "auto",
-                                duration: 0.4,
-                                ease: "power1.out"
-                            });
-                        });
-                    },
-                    onToggle: (self) => {
-                        if (!self.isActive) {
-                            tiltCards.forEach(card => {
-                                gsap.to(card, { skewX: 0, rotation: 0, duration: 0.5 });
-                            });
-                        }
-                    }
-                }
-            });
-            
-            tl.to(tiltTrack, {
-                x: getScrollAmount,
-                ease: "none"
-            });
-        }
-
-        // --- Style 4: Floating Multi-directional Collage ---
-        const collageTrack = document.querySelector('#gallery-style-4 .collage-track');
-        const collageCards = document.querySelectorAll('#gallery-style-4 .collage-card');
-        
-        if (collageTrack && collageCards.length > 0) {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#gallery-style-4",
-                    start: "top top",
-                    end: "+=1500",
-                    pin: true,
-                    scrub: 1,
-                    invalidateOnRefresh: true
-                }
-            });
-            
-            collageCards.forEach(card => {
-                const speedX = parseFloat(card.getAttribute('data-speed-x')) || 0;
-                const speedY = parseFloat(card.getAttribute('data-speed-y')) || 0;
-                
-                tl.fromTo(card,
-                    { x: 0, y: 0 },
-                    { 
-                        x: speedX, 
-                        y: speedY, 
-                        rotation: speedX * 0.05,
-                        ease: "none" 
-                    },
-                    0
-                );
             });
         }
     }

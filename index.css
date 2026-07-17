@@ -1386,19 +1386,14 @@ section {
 }
 
 /* ==========================================
-   STYLE 1: 3D DEPTH TUNNEL
+   3D DEPTH TUNNEL TIMELINE
    ========================================== */
-#gallery-style-1 {
+#timeline {
     background: #001834;
     perspective: 1200px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-#gallery-style-1 .gallery-badge {
-    background: rgba(0, 24, 52, 0.9);
-    border-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
 }
 .tunnel-track {
     position: relative;
@@ -1451,114 +1446,6 @@ section {
     text-align: center;
     z-index: 100;
     max-width: 600px;
-}
-
-
-/* ==========================================
-   STYLE 3: INERTIAL TILTING HORIZONTAL STRIP
-   ========================================== */
-#gallery-style-3 {
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-}
-.tilt-track {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    padding: 0 100px;
-    height: 100%;
-    will-change: transform;
-}
-.tilt-card {
-    flex-shrink: 0;
-    width: 320px;
-    padding: 12px;
-    background: #ffffff;
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    transform-style: preserve-3d;
-    transition: transform 0.1s ease-out;
-}
-.tilt-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: calc(var(--border-radius-md) - 4px);
-    transition: filter 0.5s ease;
-    filter: saturate(50%);
-}
-.tilt-card:hover img {
-    filter: saturate(100%);
-}
-.tilt-card-content {
-    margin-top: 10px;
-}
-.tilt-card-content h4 {
-    font-size: 1.15rem;
-    font-weight: 800;
-    font-family: var(--font-display);
-    color: var(--color-text-dark);
-    margin-bottom: 5px;
-}
-.tilt-card-content p {
-    font-size: 0.78rem;
-    color: var(--color-text-muted);
-    line-height: 1.4;
-    margin: 0;
-}
-
-/* ==========================================
-   STYLE 4: FLOATING COLLAGE
-   ========================================== */
-#gallery-style-4 {
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.collage-track {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-}
-.collage-card {
-    position: absolute;
-    width: 300px;
-    padding: 12px;
-    background: #ffffff;
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-}
-.collage-card img {
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
-    border-radius: calc(var(--border-radius-md) - 4px);
-    transition: filter 0.5s ease;
-    filter: saturate(50%);
-}
-.collage-card:hover img {
-    filter: saturate(100%);
-}
-.collage-card-content {
-    margin-top: 10px;
-}
-.collage-card-content h4 {
-    font-size: 1.1rem;
-    font-weight: 800;
-    font-family: var(--font-display);
-    color: var(--color-text-dark);
-    margin-bottom: 5px;
-}
-.collage-card-content p {
-    font-size: 0.78rem;
-    color: var(--color-text-muted);
-    line-height: 1.4;
-    margin: 0;
 }
 
 /* ==========================================
