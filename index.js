@@ -134,7 +134,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             
-            tl.to(tunnelIntro, { opacity: 0, y: -50, duration: 0.5 }, 0);
+            if (tunnelIntro) {
+                tl.to(tunnelIntro, { opacity: 0, y: -50, duration: 0.5 }, 0);
+            }
             
             tunnelCards.forEach((card, index) => {
                 const initialZ = -1200 + (index * 300);
