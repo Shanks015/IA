@@ -1,3 +1,5 @@
+import { initSoftAurora } from './SoftAurora.js';
+
 // Ensure GSAP plugins are registered
 if (typeof gsap !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
@@ -5,6 +7,26 @@ if (typeof gsap !== 'undefined') {
 
 document.addEventListener('DOMContentLoaded', () => {
     
+    // ==========================================
+    // INITIALIZE SOFT AURORA BACKGROUND
+    // ==========================================
+    const auroraContainer = document.getElementById('hero-aurora-container');
+    if (auroraContainer) {
+        initSoftAurora(auroraContainer, {
+            speed: 0.5,
+            scale: 1.2,
+            brightness: 1.1,
+            color1: '#c7d2fe', // soft indigo
+            color2: '#fbcfe8', // soft pink
+            noiseFrequency: 1.8,
+            noiseAmplitude: 0.8,
+            bandHeight: 0.45,
+            bandSpread: 0.85,
+            enableMouseInteraction: true,
+            mouseInfluence: 0.2
+        });
+    }
+
     // ==========================================
     // INITIALIZE LENIS SMOOTH SCROLL (SLOW & SMOOTH)
     // ==========================================
