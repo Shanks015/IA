@@ -1462,6 +1462,65 @@ section {
     filter: saturate(100%) sepia(0%) hue-rotate(0deg);
 }
 
+/* Timeline Cards Content & Polaroid Captions */
+.card-caption {
+    margin-top: 15px;
+    padding: 5px 10px 10px 10px;
+    text-align: left;
+    max-width: 40vh;
+}
+
+.card-caption h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+    font-family: var(--font-display);
+}
+
+.card-caption p {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Title Slide Card styles */
+.title-card-wrapper {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(90deg) translateZ(-0.1px) scale(0.95) translateX(-5vh) translateY(0);
+}
+
+.title-card-content {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    max-width: 450px;
+    text-align: left;
+    position: relative;
+}
+
+.parallax-section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-text-dark);
+    margin: 15px 0;
+    font-family: var(--font-display);
+}
+
+.parallax-section-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
 /* ==========================================
    PRICING SECTION
    ========================================== */
