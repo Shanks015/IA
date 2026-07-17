@@ -216,7 +216,7 @@ section {
 .grid-line {
     width: 1px;
     height: 100%;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.05);
 }
 
 /* ==========================================
@@ -470,8 +470,8 @@ section {
 }
 
 .enroll-today-btn {
-    background: var(--color-dark-card);
-    color: var(--color-text-white);
+    background: var(--color-primary-blue);
+    color: var(--color-white);
     font-weight: 600;
     font-size: 0.9rem;
     padding: 10px 20px;
@@ -480,7 +480,7 @@ section {
 }
 
 .enroll-today-btn:hover {
-    background: var(--color-primary-blue);
+    background: var(--color-primary-dark-blue);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
@@ -489,8 +489,8 @@ section {
    HERO SECTION
    ========================================== */
 .hero-section {
-    background: #001834;
-    color: var(--color-text-white);
+    background: var(--color-white);
+    color: var(--color-text-dark);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -500,30 +500,6 @@ section {
     padding-bottom: 240px; /* Space for the overlay and cards */
     overflow: hidden;
     position: relative;
-}
-
-/* Globe Bottom Transition (Size of the clouds before) */
-.globe-bottom-transition {
-    position: absolute;
-    bottom: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: 220px;
-    z-index: 12;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.globe-transition-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 40%;
-    opacity: 0.85;
-    mix-blend-mode: screen;
-    mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 100%);
-    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0) 100%);
 }
 
 .hero-content {
@@ -557,14 +533,14 @@ section {
 }
 
 .highlight-badge {
-    background: var(--color-dark-card);
-    color: var(--color-text-white);
+    background: var(--color-primary-light-blue);
+    color: var(--color-primary-dark-blue);
     padding: 6px 24px;
     border-radius: var(--border-radius-md);
     font-weight: 700;
     display: inline-block;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(67, 133, 224, 0.15);
 }
 
 .hero-subtitle {
@@ -573,23 +549,22 @@ section {
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.8;
-    opacity: 0.9;
-    color: var(--color-primary-light-blue);
+    color: var(--color-text-light);
 }
 
 .enroll-cta-btn {
-    background: var(--color-white);
-    color: var(--color-text-dark);
+    background: var(--color-primary-blue);
+    color: var(--color-white);
     font-size: 1.1rem;
     font-weight: 700;
     padding: 16px 36px;
     border-radius: var(--border-radius-pill);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
 }
 
 .enroll-cta-btn:hover {
-    background: var(--color-primary-light-blue);
-    color: var(--color-primary-dark-blue);
+    background: var(--color-primary-dark-blue);
+    color: var(--color-white);
     transform: scale(1.05) translateY(-2px);
     box-shadow: var(--shadow-xl);
 }
@@ -1125,8 +1100,8 @@ section {
    REVIEWS SECTION
    ========================================== */
 .reviews-section {
-    background-color: var(--color-dark-bg);
-    color: var(--color-text-white);
+    background-color: var(--color-light-bg);
+    color: var(--color-text-dark);
     overflow: hidden;
     padding: 120px 20px;
 }
@@ -1138,7 +1113,7 @@ section {
     transform: translateX(-50%);
     font-size: 15rem;
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.02);
+    color: rgba(0, 0, 0, 0.03);
     letter-spacing: -0.05em;
     pointer-events: none;
     line-height: 1;
@@ -1389,7 +1364,7 @@ section {
    3D DEPTH TUNNEL TIMELINE
    ========================================== */
 #timeline {
-    background: #001834;
+    background: var(--color-light-bg);
     perspective: 1200px;
     display: flex;
     align-items: center;
@@ -1409,7 +1384,8 @@ section {
     padding: 12px;
     background: #ffffff;
     border-radius: var(--border-radius-md);
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     transform-style: preserve-3d;
     backface-visibility: hidden;
 }
@@ -1442,7 +1418,7 @@ section {
 }
 .tunnel-intro {
     position: absolute;
-    color: #ffffff;
+    color: var(--color-text-dark);
     text-align: center;
     z-index: 100;
     max-width: 600px;
@@ -1843,8 +1819,8 @@ section {
 }
 
 .faq-item.active .faq-toggle-icon {
-    background: var(--color-dark-card);
-    color: var(--color-text-white);
+    background: var(--color-primary-blue);
+    color: var(--color-white);
 }
 
 .faq-answer {
@@ -1872,8 +1848,8 @@ section {
    CALL TO ACTION & FOOTER
    ========================================== */
 .cta-section {
-    background: #001834;
-    color: var(--color-text-white);
+    background: var(--color-light-bg);
+    color: var(--color-text-dark);
     text-align: center;
     padding: 120px 20px;
     overflow: hidden;
@@ -1943,16 +1919,16 @@ section {
 
 .social-btn:hover {
     transform: scale(1.15);
-    background: var(--color-dark-card);
-    color: var(--color-text-white);
+    background: var(--color-primary-blue);
+    color: var(--color-white);
 }
 
 .mentor-badge-name {
     margin-top: 15px;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.25);
-    color: var(--color-text-white);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--color-text-dark);
     padding: 6px 18px;
     border-radius: var(--border-radius-pill);
     font-size: 0.85rem;
@@ -1982,6 +1958,7 @@ section {
     border-radius: var(--border-radius-pill);
     padding: 6px;
     box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .subscribe-input {
@@ -1996,8 +1973,8 @@ section {
 }
 
 .subscribe-submit-btn {
-    background: var(--color-dark-card);
-    color: var(--color-text-white);
+    background: var(--color-primary-blue);
+    color: var(--color-white);
     font-size: 0.95rem;
     font-weight: 700;
     padding: 12px 30px;
@@ -2006,7 +1983,7 @@ section {
 }
 
 .subscribe-submit-btn:hover {
-    background: var(--color-primary-blue);
+    background: var(--color-primary-dark-blue);
     transform: translateY(0);
 }
 
@@ -2035,11 +2012,11 @@ section {
 
 /* Bottom Copyright Footer */
 .bottom-footer {
-    background: var(--color-dark-text-bg);
-    color: rgba(255,255,255,0.4);
+    background: var(--color-light-bg);
+    color: var(--color-text-light);
     padding: 30px 20px;
     text-align: center;
     font-size: 0.85rem;
     font-weight: 500;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
